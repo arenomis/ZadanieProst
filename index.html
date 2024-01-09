@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>АТУ сервис</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@700&family=Manrope:wght@200;400;700&display=swap");
+
+      body {
+        background-color: #18191e;
+        font-family: "Manrope", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #18191e;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        color: #ddd;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .archive-button,
+      .today-plan-button {
+        background-color: #f3f4f4;
+        color: black;
+        border: none;
+        width: 100%;
+        text-align: center;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+
+      .archive-button.active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: -6px;
+      }
+
+      .container-table-kard {
+        width: 80%;
+        margin: 20px auto;
+      }
+
+      .my-card,
+      .my-card-plan {
+        margin-right: 0;
+        width: 47%;
+        background-color: #f3f4f4;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .section-time-date {
+        margin-right: 1vh;
+        margin-left: 1vh;
+        margin-top: 50%;
+      }
+
+      .q-gutter-md {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+
+      .delete-btn {
+        height: 1vh;
+        width: 1vh;
+      }
+
+      @media screen and (min-width: 951px) {
+        .my-card {
+          width: 300px;
+          height: 120px;
+        }
+
+        .my-card-plan {
+          width: 300px;
+          height: 190px;
+        }
+      }
+
+      @media only screen and (max-width: 705px) {
+        .my-card,
+        .my-card-plan {
+          width: 45%;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .container-table-kard {
+          width: 90%;
+        }
+
+        .my-card,
+        .my-card-plan {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <button
+          onclick="toggleLeftDrawer()"
+          style="
+            background-color: #18191e;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          <i class="material-icons">menu</i>
+        </button>
+        <span>АТУ сервис</span>
+
+        <button
+          onclick="loginOpen()"
+          style="
+            background-color: #18191e;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+          "
+        >
+          <i class="material-icons">login</i> Вход
+        </button>
+      </div>
+    </header>
+    <div style="padding: 20px">
+      <!-- Ваш контент здесь -->
+      <h1>АТУ сервис</h1>
+    </div>
+    <div class="container-table-kard">
+      <button class="today-plan-button">Сегодня</button>
+
+      <div class="q-gutter-md">
+        <!-- Контейнер для карточек -->
+        <div class="my-card">
+          <div class="col">
+            <div class="text-subtitle2 q-table__grid-item-title">Время:</div>
+            <div>14:30</div>
+            <div class="text-subtitle2 q-table__grid-item-title">
+              Номер машины:
+            </div>
+            <div>E111EE111</div>
+          </div>
+          <div class="absolute-right delete-btn">Delete</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Тип машины:</div>
+          <div>легковой</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Этап:</div>
+          <div>Выполнено</div>
+        </div>
+
+        <div class="my-card">
+          <div class="col">
+            <div class="text-subtitle2 q-table__grid-item-title">Время:</div>
+            <div>15:00</div>
+            <div class="text-subtitle2 q-table__grid-item-title">
+              Номер машины:
+            </div>
+            <div>E222EE222</div>
+          </div>
+          <div class="absolute-right delete-btn">Delete</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Тип машины:</div>
+          <div>газель</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Этап:</div>
+          <div>Ожидает</div>
+        </div>
+        <div class="my-card">
+          <div class="col">
+            <div class="text-subtitle2 q-table__grid-item-title">Время:</div>
+            <div>15:00</div>
+            <div class="text-subtitle2 q-table__grid-item-title">
+              Номер машины:
+            </div>
+            <div>E222EE222</div>
+          </div>
+          <div class="absolute-right delete-btn">Delete</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Тип машины:</div>
+          <div>газель</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Этап:</div>
+          <div>Ожидает</div>
+        </div>
+        <div class="my-card">
+          <div class="col">
+            <div class="text-subtitle2 q-table__grid-item-title">Время:</div>
+            <div>15:00</div>
+            <div class="text-subtitle2 q-table__grid-item-title">
+              Номер машины:
+            </div>
+            <div>E222EE222</div>
+          </div>
+          <div class="absolute-right delete-btn">Delete</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Тип машины:</div>
+          <div>газель</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Этап:</div>
+          <div>Ожидает</div>
+        </div>
+        <div class="my-card">
+          <div class="col">
+            <div class="text-subtitle2 q-table__grid-item-title">Время:</div>
+            <div>15:00</div>
+            <div class="text-subtitle2 q-table__grid-item-title">
+              Номер машины:
+            </div>
+            <div>E222EE222</div>
+          </div>
+          <div class="absolute-right delete-btn">Delete</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Тип машины:</div>
+          <div>газель</div>
+          <div class="text-subtitle2 q-table__grid-item-title">Этап:</div>
+          <div>Ожидает</div>
+        </div>
+
+        <!-- Добавьте еще карточек по аналогии с вышеуказанными -->
+      </div>
+    </div>
+  </body>
+</html>
